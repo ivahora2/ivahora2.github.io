@@ -68,5 +68,7 @@ namespace objects {
                 console.log("bulletFired");
             } 
         }
+
+       
     }
 }

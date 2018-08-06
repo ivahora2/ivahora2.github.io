@@ -14,23 +14,23 @@ var __extends = (this && this.__extends) || (function () {
 //Date last Modified -- 2018-07-30
 var scenes;
 (function (scenes) {
-    var Play = /** @class */ (function (_super) {
-        __extends(Play, _super);
+    var PlayLevel3 = /** @class */ (function (_super) {
+        __extends(PlayLevel3, _super);
         // constructors
-        function Play() {
+        function PlayLevel3() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Play.prototype._buildEnemies = function () {
+        PlayLevel3.prototype._buildEnemies = function () {
             for (var count = 0; count < this._enemyNum; count++) {
                 this._enemy.push(new objects.Enemy());
                 //this._clouds[count] = new objects.Cloud();
             }
         };
         // public methods
-        Play.prototype.Start = function () {
+        PlayLevel3.prototype.Start = function () {
             this.engineSound = createjs.Sound.play("engine");
             this.engineSound.loop = -1;
             this.engineSound.volume = 0.1;
@@ -40,6 +40,8 @@ var scenes;
             this._island = new objects.Island();
             this._bulletManger = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManger;
+            this._bulletMangerEnemy = new managers.BulletEnemy();
+            managers.Game.bulletManagerEnemy = this._bulletMangerEnemy;
             // creates an empty array of type Cloud
             this._enemy = new Array();
             this._enemyNum = 7;
@@ -48,13 +50,14 @@ var scenes;
             managers.Game.keyboardManager = this._keyboardManager;
             this.Main();
         };
-        Play.prototype.Update = function () {
+        PlayLevel3.prototype.Update = function () {
             var _this = this;
             console.log("Num objects: " + this.numChildren);
             this._player.Update();
             this._background.Update();
             this._island.Update();
             this._bulletManger.Update();
+            this._bulletMangerEnemy.Update();
             managers.Collision.check(this._player, this._island);
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
@@ -66,14 +69,18 @@ var scenes;
                     managers.Collision.check(enemy, bullets);
                 });
             });
+            this._bulletMangerEnemy.Bullets.forEach(function (bullets) {
+                bullets.Update();
+                managers.Collision.check(_this._player, bullets);
+            });
         };
-        Play.prototype.Reset = function () {
+        PlayLevel3.prototype.Reset = function () {
         };
-        Play.prototype.Destroy = function () {
+        PlayLevel3.prototype.Destroy = function () {
             this.engineSound.stop();
             this.removeAllChildren();
         };
-        Play.prototype.Main = function () {
+        PlayLevel3.prototype.Main = function () {
             var _this = this;
             console.log("Starting - PLAY SCENE");
             // adding the ocean to the scene
@@ -83,6 +90,9 @@ var scenes;
             // adding the plane to the scene
             this.addChild(this._player);
             this._bulletManger.Bullets.forEach(function (bullet) {
+                _this.addChild(bullet);
+            });
+            this._bulletMangerEnemy.Bullets.forEach(function (bullet) {
                 _this.addChild(bullet);
             });
             this._backButton.on("click", function () {
@@ -97,8 +107,8 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
         };
-        return Play;
+        return PlayLevel3;
     }(objects.Scene));
-    scenes.Play = Play;
+    scenes.PlayLevel3 = PlayLevel3;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=PlayLevel3.js.map

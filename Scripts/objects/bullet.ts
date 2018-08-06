@@ -22,6 +22,12 @@ module objects{
       this.x += this._dx;
       this.CheckBounds();
     }
+
+    public UpdateForEnemy():void{
+      this.x -= this._dx;
+      this.CheckBounds();
+    }
+    
     public Reset():void{
       this.x=-5000;
       this.y= -5000;
@@ -35,5 +41,12 @@ module objects{
         this.Reset();
       }
     }
-  }
+
+      public CheckBoundsForEnemy():void{
+        if(this.x <= 0){
+          this.Reset();
+        }
+      }
+    }
+  
 }

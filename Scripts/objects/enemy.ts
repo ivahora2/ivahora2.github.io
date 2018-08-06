@@ -7,6 +7,8 @@ namespace objects {
     // member variables
     private _verticalSpeed: number;
     private _horizontalSpeed: number;
+    private _bulletSpawn: math.Vec2;
+    private _bullets:objects.Bullet;
 
     /**
      * Creates an instance of Cloud.
@@ -30,7 +32,7 @@ namespace objects {
     public Start(): void {
       this.regX = this.halfWidth;
       this.regY = this.halfHeight;
-      
+      this._bulletSpawn = new math.Vec2();
       this.Reset();
     }
 
@@ -38,13 +40,41 @@ namespace objects {
       this.y += this._verticalSpeed;
       this.x -= this._horizontalSpeed;
       this._checkBounds();
+
+      this.BulletFireEnemy();
     }
 
     public Reset(): void {
-      this._verticalSpeed =  Math.floor((Math.random() * 4) + -2); // between 5 and 10 ppf
-      this._horizontalSpeed = Math.floor((Math.random() * 5) +1); // between -2 and 2 ppf
+      this._verticalSpeed =  Math.floor((Math.random() * 4) + -2); 
+      this._horizontalSpeed = Math.floor((Math.random() * 5) +1); 
       this.x = config.Screen.WIDTH;
       this.y = Math.floor((Math.random() * (config.Screen.HEIGHT - this.height)) + this.halfHeight);
     }
+
+    public BulletFireEnemy(): void {
+      let ticker: number = createjs.Ticker.getTicks();
+      
+      
+
+      if ((ticker % 150 == 0)) {
+          this._bulletSpawn = new math.Vec2(this.x, this.y);
+         
+          let currentBullet = managers.Game.bulletManagerEnemy.CurrentBullet;
+
+          let bullet = managers.Game.bulletManagerEnemy.Bullets[currentBullet];
+
+          bullet.x = this._bulletSpawn.x;
+          bullet.y = this._bulletSpawn.y;
+
+          managers.Game.bulletManagerEnemy.CurrentBullet++;
+
+          if (managers.Game.bulletManagerEnemy.CurrentBullet > 49) {
+              managers.Game.bulletManagerEnemy.CurrentBullet = 0;
+          }
+
+          console.log("Enemy bulletFired");
+        
+      } 
+  }
   }
 }

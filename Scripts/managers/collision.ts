@@ -24,21 +24,18 @@ namespace managers {
                 managers.Game.ScoreBoard.Score += 100;
                 break;
 
-                case "enemy":
-
-              
-               
+                case "enemy":               
                   let thunderSound = createjs.Sound.play("thunder");
                   thunderSound.volume = 0.2;
                   managers.Game.ScoreBoard.Lives -= 1;
-                
-                
                 break;
 
                 case "Bullet":
                 managers.Game.ScoreBoard.Score += 200;
                 object1.Reset();
                 break;
+
+                
 
                 
             }

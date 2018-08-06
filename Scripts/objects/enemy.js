@@ -36,18 +36,35 @@ var objects;
         Enemy.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
+            this._bulletSpawn = new math.Vec2();
             this.Reset();
         };
         Enemy.prototype.Update = function () {
             this.y += this._verticalSpeed;
             this.x -= this._horizontalSpeed;
             this._checkBounds();
+            this.BulletFireEnemy();
         };
         Enemy.prototype.Reset = function () {
-            this._verticalSpeed = Math.floor((Math.random() * 4) + -2); // between 5 and 10 ppf
-            this._horizontalSpeed = Math.floor((Math.random() * 5) + 1); // between -2 and 2 ppf
+            this._verticalSpeed = Math.floor((Math.random() * 4) + -2);
+            this._horizontalSpeed = Math.floor((Math.random() * 5) + 1);
             this.x = config.Screen.WIDTH;
             this.y = Math.floor((Math.random() * (config.Screen.HEIGHT - this.height)) + this.halfHeight);
+        };
+        Enemy.prototype.BulletFireEnemy = function () {
+            var ticker = createjs.Ticker.getTicks();
+            if ((ticker % 150 == 0)) {
+                this._bulletSpawn = new math.Vec2(this.x, this.y);
+                var currentBullet = managers.Game.bulletManagerEnemy.CurrentBullet;
+                var bullet = managers.Game.bulletManagerEnemy.Bullets[currentBullet];
+                bullet.x = this._bulletSpawn.x;
+                bullet.y = this._bulletSpawn.y;
+                managers.Game.bulletManagerEnemy.CurrentBullet++;
+                if (managers.Game.bulletManagerEnemy.CurrentBullet > 49) {
+                    managers.Game.bulletManagerEnemy.CurrentBullet = 0;
+                }
+                console.log("Enemy bulletFired");
+            }
         };
         return Enemy;
     }(objects.GameObject));

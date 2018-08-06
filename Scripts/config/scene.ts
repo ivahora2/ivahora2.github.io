@@ -8,6 +8,7 @@ module config {
         MENU,
         INFO,
         LEVEL,
+        LEVEL3,
         START,
         PLAY,
         END

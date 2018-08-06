@@ -2,8 +2,8 @@
 //Student Number-- 300986257
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
-module scenes {
-    export class Play extends objects.Scene {
+ module scenes {
+    export class PlayLevel3 extends objects.Scene {
         // member variables
         private _player:objects.Player;
         private _background:objects.Background;
@@ -11,6 +11,7 @@ module scenes {
         private _enemy:objects.Enemy[];
         private _enemyNum:number;
         private _bulletManger:managers.Bullet;
+        private _bulletMangerEnemy:managers.BulletEnemy;
         private _exitButton:objects.Button;
         private _keyboardManager:managers.Keyboard;
         private _backButton:objects.Button;
@@ -28,6 +29,7 @@ module scenes {
         private _buildEnemies():void {
             for (let count = 0; count < this._enemyNum; count++) {
                 this._enemy.push(new objects.Enemy());
+                
                 //this._clouds[count] = new objects.Cloud();
             }
         }
@@ -45,6 +47,11 @@ module scenes {
 
             this._bulletManger = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManger;
+
+
+            this._bulletMangerEnemy = new managers.BulletEnemy();
+            managers.Game.bulletManagerEnemy = this._bulletMangerEnemy;
+
             // creates an empty array of type Cloud
             this._enemy = new Array<objects.Enemy>();
             this._enemyNum = 7;
@@ -65,6 +72,7 @@ module scenes {
             this._background.Update();
             this._island.Update();
             this._bulletManger.Update();
+            this._bulletMangerEnemy.Update();
 
             managers.Collision.check(this._player, this._island);
 
@@ -82,6 +90,12 @@ module scenes {
                 
                 });
             }); 
+
+            this._bulletMangerEnemy.Bullets.forEach(bullets =>{
+                bullets.Update();
+                managers.Collision.check(this._player,bullets);
+            })
+
 
          
         }
@@ -107,6 +121,10 @@ module scenes {
             // adding the plane to the scene
             this.addChild(this._player);
             this._bulletManger.Bullets.forEach(bullet => {  
+                this.addChild(bullet);
+            });
+
+            this._bulletMangerEnemy.Bullets.forEach(bullet => {  
                 this.addChild(bullet);
             });
 

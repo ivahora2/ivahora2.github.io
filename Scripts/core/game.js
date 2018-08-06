@@ -87,6 +87,9 @@
             case config.Scene.END:
                 CurrentScene = new scenes.End();
                 break;
+            case config.Scene.LEVEL3:
+                CurrentScene = new scenes.PlayLevel3();
+                break;
         }
         managers.Game.CurrentScene = CurrentScene;
         stage.addChild(CurrentScene);

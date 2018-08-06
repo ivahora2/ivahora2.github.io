@@ -2,8 +2,8 @@
 //Student Number-- 300986257
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
-module managers{
-    export class Bullet{
+ module managers{
+    export class BulletEnemy{
 
         private _bulletCounts:number;
 
@@ -23,7 +23,7 @@ module managers{
     }
 
         public Start():void{
-            this._bulletCounts=400;
+            this._bulletCounts=100;
             this.Bullets = new Array<objects.Bullet>();
             this._buildBulletPool();
             this.CurrentBullet=0;
@@ -32,7 +32,7 @@ module managers{
 
         public Update():void{
             this.Bullets.forEach(bullet =>{
-                bullet.Update();
+                bullet.UpdateForEnemy();
             });
         }
     }
