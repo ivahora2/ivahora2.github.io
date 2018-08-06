@@ -91,10 +91,13 @@
                 });
             }); 
 
-         /*   this._bulletMangerEnemy.Bullets.forEach(bullets =>{
-                bullets.Update();
+           this._bulletMangerEnemy.Bullets.forEach(bullets =>{
+              
+                bullets.UpdateForEnemy();
                 managers.Collision.check(this._player,bullets);
-            }) */
+                
+                
+            });
 
 
          

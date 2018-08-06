@@ -24,7 +24,7 @@ module objects{
     }
 
     public UpdateForEnemy():void{
-      this.x -= this._dx;
+      this.x -= 5;
       this.CheckBounds();
     }
     

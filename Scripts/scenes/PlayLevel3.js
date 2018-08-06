@@ -69,10 +69,10 @@ var scenes;
                     managers.Collision.check(enemy, bullets);
                 });
             });
-            /*   this._bulletMangerEnemy.Bullets.forEach(bullets =>{
-                   bullets.Update();
-                   managers.Collision.check(this._player,bullets);
-               }) */
+            this._bulletMangerEnemy.Bullets.forEach(function (bullets) {
+                bullets.UpdateForEnemy();
+                managers.Collision.check(_this._player, bullets);
+            });
         };
         PlayLevel3.prototype.Reset = function () {
         };

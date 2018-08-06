@@ -16,6 +16,10 @@ namespace managers {
       if (math.Vec2.Distance(P1, P2) < object1.halfHeight + object2.halfHeight - 30) {
         if (!object2.isColliding) {
           object2.isColliding = true;
+          console.log("1");
+
+          if(object1.name == "player")
+          {
             switch(object2.name) {
                 
                 case "lifeline":
@@ -30,15 +34,29 @@ namespace managers {
                   managers.Game.ScoreBoard.Lives -= 1;
                 break;
 
+              
+
                 case "Bullet":
-                managers.Game.ScoreBoard.Score += 200;
-                object1.Reset();
+                 thunderSound = createjs.Sound.play("thunder");
+                thunderSound.volume = 0.2;
+                managers.Game.ScoreBoard.Lives -= 1;
+                console.log("player- bullet collision");
                 break;
 
                 
 
                 
             }
+          }
+          else{
+            switch(object2.name){
+              case "Bullet":
+              managers.Game.ScoreBoard.Score += 200;
+              object1.Reset();
+              console.log("enemy bullet");
+              break;
+            }
+          }
 
         }
       }

@@ -31,7 +31,7 @@ var objects;
             this.CheckBounds();
         };
         Bullet.prototype.UpdateForEnemy = function () {
-            this.x -= this._dx;
+            this.x -= 5;
             this.CheckBounds();
         };
         Bullet.prototype.Reset = function () {
