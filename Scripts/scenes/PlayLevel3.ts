@@ -67,7 +67,7 @@
 
 
         public Update():void {
-            console.log("Num objects: " + this.numChildren);
+    
             this._player.Update();
             this._background.Update();
             this._island.Update();

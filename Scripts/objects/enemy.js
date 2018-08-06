@@ -53,17 +53,19 @@ var objects;
         };
         Enemy.prototype.BulletFireEnemy = function () {
             var ticker = createjs.Ticker.getTicks();
-            if ((ticker % 150 == 0)) {
-                this._bulletSpawn = new math.Vec2(this.x, this.y);
-                var currentBullet = managers.Game.bulletManagerEnemy.CurrentBullet;
-                var bullet = managers.Game.bulletManagerEnemy.Bullets[currentBullet];
-                bullet.x = this._bulletSpawn.x;
-                bullet.y = this._bulletSpawn.y;
-                managers.Game.bulletManagerEnemy.CurrentBullet++;
-                if (managers.Game.bulletManagerEnemy.CurrentBullet > 49) {
-                    managers.Game.bulletManagerEnemy.CurrentBullet = 0;
+            if (config.Scene.LEVEL3 == managers.Game.CurrentState) {
+                var random = Math.floor((Math.random() * 70) + 75);
+                if ((ticker % random == 0)) {
+                    this._bulletSpawn = new math.Vec2(this.x - 20, this.y);
+                    var currentBullet = managers.Game.bulletManagerEnemy.CurrentBullet;
+                    var bullet = managers.Game.bulletManagerEnemy.Bullets[currentBullet];
+                    bullet.x = this._bulletSpawn.x;
+                    bullet.y = this._bulletSpawn.y;
+                    managers.Game.bulletManagerEnemy.CurrentBullet++;
+                    if (managers.Game.bulletManagerEnemy.CurrentBullet > 49) {
+                        managers.Game.bulletManagerEnemy.CurrentBullet = 0;
+                    }
                 }
-                console.log("Enemy bulletFired");
             }
         };
         return Enemy;

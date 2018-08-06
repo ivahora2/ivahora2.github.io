@@ -16,7 +16,7 @@ namespace managers {
       if (math.Vec2.Distance(P1, P2) < object1.halfHeight + object2.halfHeight - 30) {
         if (!object2.isColliding) {
           object2.isColliding = true;
-          console.log("1");
+          
 
           if(object1.name == "player")
           {
@@ -40,7 +40,7 @@ namespace managers {
                  thunderSound = createjs.Sound.play("thunder");
                 thunderSound.volume = 0.2;
                 managers.Game.ScoreBoard.Lives -= 1;
-                console.log("player- bullet collision");
+               
                 break;
 
                 

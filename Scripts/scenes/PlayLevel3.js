@@ -52,7 +52,6 @@ var scenes;
         };
         PlayLevel3.prototype.Update = function () {
             var _this = this;
-            console.log("Num objects: " + this.numChildren);
             this._player.Update();
             this._background.Update();
             this._island.Update();

@@ -9,6 +9,7 @@ namespace objects {
     private _horizontalSpeed: number;
     private _bulletSpawn: math.Vec2;
     private _bullets:objects.Bullet;
+  
 
     /**
      * Creates an instance of Cloud.
@@ -55,9 +56,13 @@ namespace objects {
       let ticker: number = createjs.Ticker.getTicks();
       
       
+      if(config.Scene.LEVEL3== managers.Game.CurrentState)
+      {
 
-      if ((ticker % 150 == 0)) {
-          this._bulletSpawn = new math.Vec2(this.x, this.y);
+        let random:number =  Math.floor((Math.random() * 70) +75);
+        
+      if ((ticker % random == 0)) {
+          this._bulletSpawn = new math.Vec2(this.x-20, this.y);
          
           let currentBullet = managers.Game.bulletManagerEnemy.CurrentBullet;
 
@@ -72,9 +77,14 @@ namespace objects {
               managers.Game.bulletManagerEnemy.CurrentBullet = 0;
           }
 
-          console.log("Enemy bulletFired");
+          
         
       } 
+    }
+
+   
+
+    }
   }
   }
-}
+
