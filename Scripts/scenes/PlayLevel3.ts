@@ -91,10 +91,10 @@
                 });
             }); 
 
-            this._bulletMangerEnemy.Bullets.forEach(bullets =>{
+         /*   this._bulletMangerEnemy.Bullets.forEach(bullets =>{
                 bullets.Update();
                 managers.Collision.check(this._player,bullets);
-            })
+            }) */
 
 
          
@@ -134,8 +134,8 @@
             
 
             // adding the cloud to the scene
-            for (const cloud of this._enemy) {
-                this.addChild(cloud);
+            for (const enemy of this._enemy) {
+                this.addChild(enemy);
             }
 
             this.addChild(managers.Game.ScoreBoard.LivesLabel);

@@ -69,10 +69,10 @@ var scenes;
                     managers.Collision.check(enemy, bullets);
                 });
             });
-            this._bulletMangerEnemy.Bullets.forEach(function (bullets) {
-                bullets.Update();
-                managers.Collision.check(_this._player, bullets);
-            });
+            /*   this._bulletMangerEnemy.Bullets.forEach(bullets =>{
+                   bullets.Update();
+                   managers.Collision.check(this._player,bullets);
+               }) */
         };
         PlayLevel3.prototype.Reset = function () {
         };
@@ -100,8 +100,8 @@ var scenes;
             }, this);
             // adding the cloud to the scene
             for (var _i = 0, _a = this._enemy; _i < _a.length; _i++) {
-                var cloud = _a[_i];
-                this.addChild(cloud);
+                var enemy = _a[_i];
+                this.addChild(enemy);
             }
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);

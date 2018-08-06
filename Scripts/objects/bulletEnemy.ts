@@ -7,7 +7,7 @@
       
   
       constructor(){
-        super("Bullet");
+        super("EnemyBullet");
         this.Start();
       }
   

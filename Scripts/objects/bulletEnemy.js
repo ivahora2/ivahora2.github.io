@@ -17,7 +17,7 @@ var objects;
     var BulletEnemy = /** @class */ (function (_super) {
         __extends(BulletEnemy, _super);
         function BulletEnemy() {
-            var _this = _super.call(this, "Bullet") || this;
+            var _this = _super.call(this, "EnemyBullet") || this;
             _this.Start();
             return _this;
         }
