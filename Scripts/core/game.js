@@ -16,6 +16,7 @@
         { id: "ExitButton", src: "/Assets/images/exit.png" },
         { id: "infoButton", src: "/Assets/images/information.png" },
         { id: "intermediateButton", src: "/Assets/images/intermediate.png" },
+        { id: "expertButton", src: "/Assets/images/expert.png" },
         { id: "begginerButton", src: "/Assets/images/begginer.png" },
         { id: "restartButton", src: "/Assets/images/restart.png" },
         { id: "BackButton", src: "/Assets/images/back.png" },

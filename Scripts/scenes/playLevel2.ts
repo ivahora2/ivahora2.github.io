@@ -2,7 +2,7 @@
 //Student Number-- 300986257
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
-module scenes {
+ module scenes {
     export class PLayLevelUp extends objects.Scene {
         // member variables
         private _player:objects.Player;
@@ -11,6 +11,7 @@ module scenes {
         private _enemy:objects.Enemy[];
         private _enemyNum:number;
         private _exitButton:objects.Button;
+        private _score: number;
         private _backButton:objects.Button;
        
         
@@ -65,8 +66,7 @@ module scenes {
             });
 
             
-            
-        }
+    }
 
         public Reset():void {
 
@@ -102,6 +102,15 @@ module scenes {
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
            
             this.addChild(this._backButton);
+
+            var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
+           this._score=+score;
+
+            if(this._score>400)
+            {
+                managers.Game.CurrentState = config.Scene.LEVEL3;
+            }
+        }
+            
         }
     }
-}

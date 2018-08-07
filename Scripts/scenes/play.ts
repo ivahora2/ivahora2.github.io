@@ -2,7 +2,7 @@
 //Student Number-- 300986257
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
-module scenes {
+ module scenes {
     export class Play extends objects.Scene {
         // member variables
         private _player:objects.Player;
@@ -14,6 +14,7 @@ module scenes {
         private _exitButton:objects.Button;
         private _keyboardManager:managers.Keyboard;
         private _backButton:objects.Button;
+        private _score:number;
         
         public engineSound:createjs.AbstractSoundInstance;
 
@@ -67,13 +68,12 @@ module scenes {
             this._bulletManger.Update();
 
             managers.Collision.check(this._player, this._island);
+            this.nextLevel();
 
             this._enemy.forEach(enemy => {
                 enemy.Update();
                 managers.Collision.check(this._player, enemy);
             });
-            
-
            this._bulletManger.Bullets.forEach(bullets => {
                 bullets.Update();
                 this._enemy.forEach(enemy => {
@@ -82,8 +82,25 @@ module scenes {
                 
                 });
             }); 
+            /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
+            this._score=+score;
+ 
+             if(this._score>200)
+             {
+                 managers.Game.CurrentState = config.Scene.LEVEL;
+             }*/
+ 
+        }
 
-         
+        public nextLevel():void
+        {
+            var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
+            this._score=+score;
+ 
+             if(this._score>200)
+             {
+                 managers.Game.CurrentState = config.Scene.PLAY;
+             }
         }
 
         public Reset():void {
@@ -123,6 +140,14 @@ module scenes {
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
+
+           /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
+           this._score=+score;
+
+            if(this._score>200)
+            {
+                managers.Game.CurrentState = config.Scene.LEVEL;
+            }*/
         }
     }
 }

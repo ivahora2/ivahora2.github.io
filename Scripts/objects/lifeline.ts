@@ -40,8 +40,15 @@
     }
 
     public Reset(): void {
+  
       this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);//-this.height;
       this.x = -this.width;//Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
-    }
+     }
+
+     public Disappear():void{
+       this.y=-500;
+       this.x=-500;
+     }
+    
   }
 }

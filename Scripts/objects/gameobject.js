@@ -38,6 +38,8 @@ var objects;
         };
         GameObject.prototype.Reset = function () {
         };
+        GameObject.prototype.Disappear = function () {
+        };
         return GameObject;
     }(createjs.Bitmap));
     objects.GameObject = GameObject;

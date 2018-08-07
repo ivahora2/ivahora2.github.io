@@ -49,5 +49,9 @@ module objects {
         public Reset():void {
 
         }
+
+        public Disappear():void{
+
+        }
     }
 }

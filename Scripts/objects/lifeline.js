@@ -47,6 +47,10 @@ var objects;
             this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth); //-this.height;
             this.x = -this.width; //Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
         };
+        Island.prototype.Disappear = function () {
+            this.y = -500;
+            this.x = -500;
+        };
         return Island;
     }(objects.GameObject));
     objects.Island = Island;

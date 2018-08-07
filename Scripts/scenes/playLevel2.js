@@ -81,6 +81,11 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
+            var score = managers.Game.ScoreBoard.ScoreLabel.text.toString();
+            this._score = +score;
+            if (this._score > 400) {
+                managers.Game.CurrentState = config.Scene.LEVEL3;
+            }
         };
         return PLayLevelUp;
     }(objects.Scene));

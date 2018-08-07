@@ -26,6 +26,8 @@ namespace managers {
                 let yaySound = createjs.Sound.play("yay");
                 yaySound.volume = 0.2;
                 managers.Game.ScoreBoard.Score += 100;
+                object2.Disappear();
+                
                 break;
 
                 case "enemy":               
@@ -53,7 +55,7 @@ namespace managers {
               case "Bullet":
               managers.Game.ScoreBoard.Score += 200;
               object1.Reset();
-              console.log("enemy bullet");
+              
               break;
             }
           }

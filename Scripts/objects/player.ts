@@ -50,7 +50,8 @@ namespace objects {
         public BulletFire(): void {
             let ticker: number = createjs.Ticker.getTicks();
             
-
+            if(config.Scene.PLAY != managers.Game.CurrentState)
+            {
             if ((ticker % 10 == 0) && (managers.Game.keyboardManager.fire)) {
                 this._bulletSpawn = new math.Vec2(this.x, this.y);
                 let currentBullet = managers.Game.bulletManager.CurrentBullet;
@@ -65,8 +66,9 @@ namespace objects {
                     managers.Game.bulletManager.CurrentBullet = 0;
                 }
 
-                console.log("bulletFired");
+               
             } 
+        }
         }
 
        
