@@ -14,6 +14,8 @@ var config;
         Scene[Scene["START"] = 4] = "START";
         Scene[Scene["PLAY"] = 5] = "PLAY";
         Scene[Scene["END"] = 6] = "END";
+        Scene[Scene["UPGRADE"] = 7] = "UPGRADE";
+        Scene[Scene["UPGRADE3"] = 8] = "UPGRADE3";
     })(Scene = config.Scene || (config.Scene = {}));
 })(config || (config = {}));
 //# sourceMappingURL=scene.js.map

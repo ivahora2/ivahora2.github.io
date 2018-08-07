@@ -11,6 +11,8 @@ module config {
         LEVEL3,
         START,
         PLAY,
-        END
+        END,
+        UPGRADE,
+        UPGRADE3
     }
 }

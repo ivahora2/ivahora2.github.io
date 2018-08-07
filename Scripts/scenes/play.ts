@@ -61,15 +61,14 @@
 
 
         public Update():void {
-            console.log("Num objects: " + this.numChildren);
+            
             this._player.Update();
             this._background.Update();
             this._island.Update();
             this._bulletManger.Update();
 
             managers.Collision.check(this._player, this._island);
-            this.nextLevel();
-
+            
             this._enemy.forEach(enemy => {
                 enemy.Update();
                 managers.Collision.check(this._player, enemy);
@@ -82,26 +81,16 @@
                 
                 });
             }); 
-            /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score=+score;
- 
-             if(this._score>200)
-             {
-                 managers.Game.CurrentState = config.Scene.LEVEL;
-             }*/
+
+            if( managers.Game.ScoreBoard.Score >10000)
+            {
+                  managers.Game.CurrentState = config.Scene.UPGRADE3;
+            }
+           
  
         }
 
-        public nextLevel():void
-        {
-            var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score=+score;
- 
-             if(this._score>200)
-             {
-                 managers.Game.CurrentState = config.Scene.PLAY;
-             }
-        }
+      
 
         public Reset():void {
 
@@ -141,13 +130,6 @@
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
 
-           /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-           this._score=+score;
-
-            if(this._score>200)
-            {
-                managers.Game.CurrentState = config.Scene.LEVEL;
-            }*/
         }
     }
 }

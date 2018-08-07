@@ -11,8 +11,9 @@
         private _enemy:objects.Enemy[];
         private _enemyNum:number;
         private _exitButton:objects.Button;
-        private _score: number;
+        private _score: managers.ScoreBoard;
         private _backButton:objects.Button;
+        
        
         
         public engineSound:createjs.AbstractSoundInstance;
@@ -43,6 +44,7 @@
             this._player = new objects.Player();
             this._background = new objects.Background();
             this._island = new objects.Island();
+            this._score = new managers.ScoreBoard();
 
             // creates an empty array of type Cloud
             this._enemy = new Array<objects.Enemy>();
@@ -64,6 +66,12 @@
                 enemy.Update();
                 managers.Collision.check(this._player, enemy);
             });
+
+            
+            if( managers.Game.ScoreBoard.Score >100)
+            {
+                  managers.Game.CurrentState = config.Scene.UPGRADE;
+            }
 
             
     }
@@ -102,14 +110,10 @@
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
            
             this.addChild(this._backButton);
+            console.log(managers.Game.ScoreBoard.HighScore);
 
-            var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-           this._score=+score;
-
-            if(this._score>400)
-            {
-                managers.Game.CurrentState = config.Scene.LEVEL3;
-            }
+            
+          
         }
             
         }

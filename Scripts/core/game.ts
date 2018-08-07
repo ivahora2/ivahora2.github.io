@@ -117,6 +117,14 @@
             case config.Scene.LEVEL3:
             CurrentScene = new scenes.PlayLevel3();
             break;
+
+            case config.Scene.UPGRADE:
+            CurrentScene = new scenes.LevelUpgrade();
+            break;
+
+            case config.Scene.UPGRADE3:
+            CurrentScene = new scenes.LevelUpgrade3();
+            break;
         }
 
         managers.Game.CurrentScene = CurrentScene;

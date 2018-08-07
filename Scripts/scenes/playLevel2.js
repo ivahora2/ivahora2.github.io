@@ -39,6 +39,7 @@ var scenes;
             this._player = new objects.Player();
             this._background = new objects.Background();
             this._island = new objects.Island();
+            this._score = new managers.ScoreBoard();
             // creates an empty array of type Cloud
             this._enemy = new Array();
             this._enemyNum = 3;
@@ -55,6 +56,9 @@ var scenes;
                 enemy.Update();
                 managers.Collision.check(_this._player, enemy);
             });
+            if (managers.Game.ScoreBoard.Score > 100) {
+                managers.Game.CurrentState = config.Scene.UPGRADE;
+            }
         };
         PLayLevelUp.prototype.Reset = function () {
         };
@@ -81,11 +85,7 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
-            var score = managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score = +score;
-            if (this._score > 400) {
-                managers.Game.CurrentState = config.Scene.LEVEL3;
-            }
+            console.log(managers.Game.ScoreBoard.HighScore);
         };
         return PLayLevelUp;
     }(objects.Scene));

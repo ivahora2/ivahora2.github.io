@@ -50,13 +50,11 @@ var scenes;
         };
         Play.prototype.Update = function () {
             var _this = this;
-            console.log("Num objects: " + this.numChildren);
             this._player.Update();
             this._background.Update();
             this._island.Update();
             this._bulletManger.Update();
             managers.Collision.check(this._player, this._island);
-            this.nextLevel();
             this._enemy.forEach(function (enemy) {
                 enemy.Update();
                 managers.Collision.check(_this._player, enemy);
@@ -67,19 +65,8 @@ var scenes;
                     managers.Collision.check(enemy, bullets);
                 });
             });
-            /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score=+score;
- 
-             if(this._score>200)
-             {
-                 managers.Game.CurrentState = config.Scene.LEVEL;
-             }*/
-        };
-        Play.prototype.nextLevel = function () {
-            var score = managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score = +score;
-            if (this._score > 200) {
-                managers.Game.CurrentState = config.Scene.PLAY;
+            if (managers.Game.ScoreBoard.Score > 10000) {
+                managers.Game.CurrentState = config.Scene.UPGRADE3;
             }
         };
         Play.prototype.Reset = function () {
@@ -111,13 +98,6 @@ var scenes;
             this.addChild(managers.Game.ScoreBoard.LivesLabel);
             this.addChild(managers.Game.ScoreBoard.ScoreLabel);
             this.addChild(this._backButton);
-            /*var score=managers.Game.ScoreBoard.ScoreLabel.text.toString();
-            this._score=+score;
- 
-             if(this._score>200)
-             {
-                 managers.Game.CurrentState = config.Scene.LEVEL;
-             }*/
         };
         return Play;
     }(objects.Scene));
