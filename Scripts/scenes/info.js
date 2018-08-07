@@ -28,7 +28,7 @@ var scenes;
             this._background = new objects.Background();
             this._infoButton = new objects.Button("infoButton", 40, 30, true);
             this._backButton = new objects.Button("BackButton", 600, 30, true);
-            this._welcomeLabel = new objects.Label("You are in the Internet War!", "35px", "Ink Free", "#000", 300, 80, true);
+            this._welcomeLabel = new objects.Label("You are in the space War!", "35px", "Ink Free", "#000", 300, 80, true);
             this._infoLabel = new objects.Label("Level 1- You, You the Fighter Jet!", "28px", "Ink Free", "#000", 300, 140, true);
             this._infoLabel1 = new objects.Label("Save yourself from the other fighter \njets by scrolling up and down using mouse", "25px", "Ink Free", "#000", 320, 200, true);
             this._infoLabel2 = new objects.Label("Level 2- You, You the Fighter Jet!", "28px", "Ink Free", "#000", 300, 260, true);
