@@ -26,6 +26,7 @@
         { id: "background", src: "/Assets/images/background.jpg" },
         { id: "lifeline", src: "/Assets/images/banana.png" },
         { id: "Bullet", src: "/Assets/images/bullet.png" },
+        { id: "EnemyBullet", src: "/Assets/images/bullet.png" },
         { id: "enemy", src: "/Assets/images/enemy.png" },
         { id: "yay", src: "/Assets/audio/yay.ogg" },
         { id: "thunder", src: "/Assets/audio/thunder.ogg" },

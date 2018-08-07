@@ -2,7 +2,7 @@
 //Student Number-- 300986257
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
-namespace objects {
+ namespace objects {
   export class Background extends createjs.Bitmap {
     // member variables
     private _horizontalSpeed: number;
@@ -20,14 +20,14 @@ namespace objects {
     // private methods
     private _checkBounds(): void {
       // check top boundary
-      if (this.x <=-((config.Screen.WIDTH)*2)) {
+      if (this.x <=-((config.Screen.WIDTH))/2) {
         this.Reset();
       }
     }
 
     // public methods
     public Start(): void {
-      this._horizontalSpeed = -3; // 5 pixels per frame
+      this._horizontalSpeed = -1/2; // 5 pixels per frame
       this.Reset();
     }
 

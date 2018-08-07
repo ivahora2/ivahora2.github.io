@@ -3,7 +3,7 @@
  //Last Modified by Ishratben Vahora
  //Date last Modified -- 2018-07-30
  
-namespace objects {
+ namespace objects {
   export class Island extends objects.GameObject {
     // member variables
     private _verticalSpeed: number;
@@ -21,7 +21,7 @@ namespace objects {
     // private methods
     private _checkBounds(): void {
       // check bottom boundary
-      if (this.y > config.Screen.HEIGHT + this.halfHeight) {
+      if (this.x > config.Screen.WIDTH + this.halfWidth) {
         this.Reset();
       }
     }
@@ -35,13 +35,13 @@ namespace objects {
     }
 
     public Update(): void {
-      this.y += this._verticalSpeed;
+      this.x += this._verticalSpeed;
       this._checkBounds();
     }
 
     public Reset(): void {
-      this.y = -this.height;
-      this.x = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
+      this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);//-this.height;
+      this.x = -this.width;//Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
     }
   }
 }

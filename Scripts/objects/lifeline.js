@@ -28,7 +28,7 @@ var objects;
         // private methods
         Island.prototype._checkBounds = function () {
             // check bottom boundary
-            if (this.y > config.Screen.HEIGHT + this.halfHeight) {
+            if (this.x > config.Screen.WIDTH + this.halfWidth) {
                 this.Reset();
             }
         };
@@ -40,12 +40,12 @@ var objects;
             this.Reset();
         };
         Island.prototype.Update = function () {
-            this.y += this._verticalSpeed;
+            this.x += this._verticalSpeed;
             this._checkBounds();
         };
         Island.prototype.Reset = function () {
-            this.y = -this.height;
-            this.x = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
+            this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth); //-this.height;
+            this.x = -this.width; //Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
         };
         return Island;
     }(objects.GameObject));

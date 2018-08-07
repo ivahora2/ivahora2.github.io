@@ -28,13 +28,13 @@ var objects;
         // private methods
         Background.prototype._checkBounds = function () {
             // check top boundary
-            if (this.x <= -((config.Screen.WIDTH) * 2)) {
+            if (this.x <= -((config.Screen.WIDTH)) / 2) {
                 this.Reset();
             }
         };
         // public methods
         Background.prototype.Start = function () {
-            this._horizontalSpeed = -3; // 5 pixels per frame
+            this._horizontalSpeed = -1 / 2; // 5 pixels per frame
             this.Reset();
         };
         Background.prototype.Update = function () {

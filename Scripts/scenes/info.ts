@@ -10,6 +10,8 @@
         private _infoLabel1: objects.Label;
         private _infoLabel2: objects.Label;
         private _infoLabel3: objects.Label;
+        private _infoLabel4: objects.Label;
+        private _infoLabel5: objects.Label;
         private _infoButton:objects.Button;
         private _background: objects.Background;
         private _backButton:objects.Button;
@@ -29,12 +31,14 @@
             this._background = new objects.Background();
             this._infoButton = new objects.Button("infoButton",40,30,true);
             this._backButton = new objects.Button("BackButton",600,30,true);
-            this._welcomeLabel = new objects.Label("You are in the minion world", "40px", "Consolas", "#000", 300, 80, true);
-            this._infoLabel = new objects.Label("Level1- You, You the yellow minion ", "20px", "Consolas", "#000", 300, 120, true);
-            this._infoLabel1 = new objects.Label(" Save yourself from the purple minions by scrolling up and down using mouse ", "15px", "Consolas", "#000", 320, 140, true);
-            this._infoLabel2 = new objects.Label("Level2- You, You the yellow minion ", "20px", "Consolas", "#000", 300, 180, true);
-            this._infoLabel3 = new objects.Label("Pree the space bar to fire bullets and kill the enemy ", "15px", "Consolas", "#000", 320, 200, true);
-            
+            this._welcomeLabel = new objects.Label("You are in the Internet War!", "35px", "Ink Free", "#000", 300, 80, true);
+            this._infoLabel = new objects.Label("Level 1- You, You the Fighter Jet!", "28px", "Ink Free", "#000", 300, 140, true);
+            this._infoLabel1 = new objects.Label("Save yourself from the other fighter \njets by scrolling up and down using mouse", "25px", "Ink Free", "#000", 320, 200, true);
+            this._infoLabel2 = new objects.Label("Level 2- You, You the Fighter Jet!", "28px", "Ink Free", "#000", 300, 260, true);
+            this._infoLabel3 = new objects.Label("Press the space bar to fire \n bullets and kill the enemy ", "25px", "Ink Free", "#000", 300, 320, true);
+            this._infoLabel4 = new objects.Label("Level 3-You, You the Fighter Jet!","28px","Ink Free","#000",300,360,true);
+            this._infoLabel5 = new objects.Label("Beware now the enemies \nare firing at you too.","25px","Ink Free","#000",320,420,true);
+            //\n\n\n Beware now the enemies \nare firing at you too."
 
           
 
@@ -63,6 +67,8 @@
             this.addChild(this._infoLabel1);
             this.addChild(this._infoLabel2);
             this.addChild(this._infoLabel3);
+            this.addChild(this._infoLabel4);
+            this.addChild(this._infoLabel5);
             this.addChild(this._backButton);
             
             this._backButton.on("click", function(){
