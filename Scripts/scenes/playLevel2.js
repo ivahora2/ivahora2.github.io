@@ -56,7 +56,7 @@ var scenes;
                 enemy.Update();
                 managers.Collision.check(_this._player, enemy);
             });
-            if (managers.Game.ScoreBoard.Score > 100) {
+            if (managers.Game.ScoreBoard.Score >= 500) {
                 managers.Game.CurrentState = config.Scene.UPGRADE;
             }
         };

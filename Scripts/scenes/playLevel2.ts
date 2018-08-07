@@ -68,7 +68,7 @@
             });
 
             
-            if( managers.Game.ScoreBoard.Score >100)
+            if( managers.Game.ScoreBoard.Score >=500)
             {
                   managers.Game.CurrentState = config.Scene.UPGRADE;
             }
