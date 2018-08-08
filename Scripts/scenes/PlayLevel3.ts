@@ -114,6 +114,7 @@
 
         public Main():void {
             console.log(`Starting - PLAY SCENE`);
+            console.log("1");
 
             // adding the ocean to the scene
             this.addChild(this._background);
