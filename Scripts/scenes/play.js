@@ -65,7 +65,7 @@ var scenes;
                     managers.Collision.check(enemy, bullets);
                 });
             });
-            if (managers.Game.ScoreBoard.Score > 10000) {
+            if (managers.Game.ScoreBoard.Score > 7000) {
                 managers.Game.CurrentState = config.Scene.UPGRADE3;
             }
         };
