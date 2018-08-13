@@ -34,8 +34,8 @@
         {id: "Bullet", src:"/Assets/images/bullet.png"},
         {id: "EnemyBullet", src:"/Assets/images/bullet.png"},
         {id: "enemy", src:"/Assets/images/enemy.png"},
-        {id: "yay", src:"/Assets/audio/yay.ogg"},
-        {id: "thunder", src:"/Assets/audio/thunder.ogg"},
+        {id: "yay", src:"/Assets/audio/Powerup.wav"},
+        {id: "thunder", src:"/Assets/audio/Explosion2.wav"},
         {id: "engine", src:"/Assets/audio/gameSound.mp3"}
     ]
 
