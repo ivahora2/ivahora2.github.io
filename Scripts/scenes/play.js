@@ -37,7 +37,7 @@ var scenes;
             this._backButton = new objects.Button("BackButton", 600, 30, true);
             this._player = new objects.Player();
             this._background = new objects.Background();
-            this._island = new objects.Island();
+            this._island = new objects.Lifeline();
             this._bulletManger = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManger;
             // creates an empty array of type Cloud

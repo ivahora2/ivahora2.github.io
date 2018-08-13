@@ -37,7 +37,7 @@ var scenes;
             this._backButton = new objects.Button("BackButton", 600, 30, true);
             this._player = new objects.Player();
             this._background = new objects.Background();
-            this._island = new objects.Island();
+            this._island = new objects.Lifeline();
             this._bulletManger = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManger;
             this._bulletMangerEnemy = new managers.BulletEnemy();
@@ -82,6 +82,7 @@ var scenes;
         PlayLevel3.prototype.Main = function () {
             var _this = this;
             console.log("Starting - PLAY SCENE");
+            console.log("1");
             // adding the ocean to the scene
             this.addChild(this._background);
             // adding the island to the scene

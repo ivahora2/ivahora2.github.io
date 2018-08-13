@@ -7,7 +7,7 @@
         // member variables
         private _player:objects.Player;
         private _background:objects.Background;
-        private _island:objects.Island;
+        private _island:objects.Lifeline;
         private _enemy:objects.Enemy[];
         private _enemyNum:number;
         private _exitButton:objects.Button;
@@ -43,7 +43,7 @@
             this._exitButton = new objects.Button("ExitButton",600,30,true);
             this._player = new objects.Player();
             this._background = new objects.Background();
-            this._island = new objects.Island();
+            this._island = new objects.Lifeline();
             this._score = new managers.ScoreBoard();
 
             // creates an empty array of type Cloud

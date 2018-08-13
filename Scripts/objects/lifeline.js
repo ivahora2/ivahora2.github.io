@@ -14,45 +14,45 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Island = /** @class */ (function (_super) {
-        __extends(Island, _super);
+    var Lifeline = /** @class */ (function (_super) {
+        __extends(Lifeline, _super);
         /**
          * Creates an instance of Plane.
-         * @memberof Plane
+         * @memberof Lifeline
          */
-        function Island() {
+        function Lifeline() {
             var _this = _super.call(this, "lifeline") || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Island.prototype._checkBounds = function () {
+        Lifeline.prototype._checkBounds = function () {
             // check bottom boundary
-            if (this.x > config.Screen.WIDTH + this.halfWidth) {
+            if (this.x < this.halfWidth) {
                 this.Reset();
             }
         };
         // public methods
-        Island.prototype.Start = function () {
+        Lifeline.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
             this._verticalSpeed = 5;
             this.Reset();
         };
-        Island.prototype.Update = function () {
-            this.x += this._verticalSpeed;
+        Lifeline.prototype.Update = function () {
+            this.x -= this._verticalSpeed;
             this._checkBounds();
         };
-        Island.prototype.Reset = function () {
-            this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth); //-this.height;
-            this.x = -this.width; //Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
+        Lifeline.prototype.Reset = function () {
+            this.y = Math.floor((Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth);
+            this.x = config.Screen.WIDTH;
         };
-        Island.prototype.Disappear = function () {
+        Lifeline.prototype.Disappear = function () {
             this.y = -500;
             this.x = -500;
         };
-        return Island;
+        return Lifeline;
     }(objects.GameObject));
-    objects.Island = Island;
+    objects.Lifeline = Lifeline;
 })(objects || (objects = {}));
 //# sourceMappingURL=lifeline.js.map

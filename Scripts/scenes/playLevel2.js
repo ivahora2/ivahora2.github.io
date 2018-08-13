@@ -38,7 +38,7 @@ var scenes;
             this._exitButton = new objects.Button("ExitButton", 600, 30, true);
             this._player = new objects.Player();
             this._background = new objects.Background();
-            this._island = new objects.Island();
+            this._island = new objects.Lifeline();
             this._score = new managers.ScoreBoard();
             // creates an empty array of type Cloud
             this._enemy = new Array();

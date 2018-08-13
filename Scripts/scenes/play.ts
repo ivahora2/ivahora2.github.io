@@ -7,7 +7,7 @@
         // member variables
         private _player:objects.Player;
         private _background:objects.Background;
-        private _island:objects.Island;
+        private _island:objects.Lifeline;
         private _enemy:objects.Enemy[];
         private _enemyNum:number;
         private _bulletManger:managers.Bullet;
@@ -42,7 +42,7 @@
             
             this._player = new objects.Player();
             this._background = new objects.Background();
-            this._island = new objects.Island();
+            this._island = new objects.Lifeline();
 
             this._bulletManger = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManger;
